@@ -1,0 +1,114 @@
+<!-- Architecture Diagram: Mini AI Sales Prediction System -->
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141720"/>
+      <stop offset="100%" stop-color="#0d0f14"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6c8bff"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6e7899"/>
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6c8bff"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#e8ecf4" font-size="18" font-weight="700">Mini AI Sales Prediction — System Architecture</text>
+
+  <!-- ── FRONTEND ── -->
+  <rect x="40" y="80" width="170" height="200" rx="10" fill="#1c2030" stroke="#2a2f45" stroke-width="1.5"/>
+  <rect x="40" y="80" width="170" height="36" rx="10" fill="url(#acc)"/>
+  <rect x="40" y="104" width="170" height="12" rx="0" fill="url(#acc)"/>
+  <text x="125" y="103" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">FRONTEND</text>
+  <text x="125" y="120" text-anchor="middle" fill="#fff" font-size="10">React JS + Vite</text>
+  <text x="60" y="148" fill="#6c8bff" font-size="11" font-weight="600">Components:</text>
+  <text x="60" y="165" fill="#a0a8c0" font-size="11">• LoginPage</text>
+  <text x="60" y="181" fill="#a0a8c0" font-size="11">• DashboardPage</text>
+  <text x="60" y="197" fill="#a0a8c0" font-size="11">• SalesTable</text>
+  <text x="60" y="213" fill="#a0a8c0" font-size="11">• PredictForm</text>
+  <text x="60" y="229" fill="#a0a8c0" font-size="11">• StatsCards</text>
+  <text x="60" y="253" fill="#6e7899" font-size="10">localhost:5173</text>
+  <text x="60" y="268" fill="#6e7899" font-size="10">JWT in localStorage</text>
+
+  <!-- ── BACKEND ── -->
+  <rect x="340" y="80" width="200" height="260" rx="10" fill="#1c2030" stroke="#2a2f45" stroke-width="1.5"/>
+  <rect x="340" y="80" width="200" height="36" rx="10" fill="#1d4ed8" opacity="0.9"/>
+  <rect x="340" y="104" width="200" height="12" rx="0" fill="#1d4ed8" opacity="0.9"/>
+  <text x="440" y="103" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">BACKEND (FastAPI)</text>
+  <text x="440" y="120" text-anchor="middle" fill="#93c5fd" font-size="10">Python + Uvicorn</text>
+  <text x="360" y="148" fill="#60a5fa" font-size="11" font-weight="600">REST Endpoints:</text>
+  <text x="360" y="165" fill="#a0a8c0" font-size="11">POST  /auth/login</text>
+  <text x="360" y="181" fill="#a0a8c0" font-size="11">GET   /sales</text>
+  <text x="360" y="197" fill="#a0a8c0" font-size="11">POST  /predict</text>
+  <text x="360" y="213" fill="#a0a8c0" font-size="11">GET   /health</text>
+  <text x="360" y="233" fill="#60a5fa" font-size="11" font-weight="600">Services:</text>
+  <text x="360" y="249" fill="#a0a8c0" font-size="11">• JWT Auth (python-jose)</text>
+  <text x="360" y="265" fill="#a0a8c0" font-size="11">• ML Service (singleton)</text>
+  <text x="360" y="281" fill="#a0a8c0" font-size="11">• CORS Middleware</text>
+  <text x="360" y="301" fill="#6e7899" font-size="10">localhost:8000  |  /docs (Swagger)</text>
+  <text x="360" y="316" fill="#6e7899" font-size="10">Pydantic validation on all I/O</text>
+
+  <!-- ── ML ── -->
+  <rect x="660" y="80" width="200" height="200" rx="10" fill="#1c2030" stroke="#2a2f45" stroke-width="1.5"/>
+  <rect x="660" y="80" width="200" height="36" rx="10" fill="#065f46" opacity="0.9"/>
+  <rect x="660" y="104" width="200" height="12" rx="0" fill="#065f46" opacity="0.9"/>
+  <text x="760" y="103" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">ML MODULE</text>
+  <text x="760" y="120" text-anchor="middle" fill="#6ee7b7" font-size="10">Scikit-learn + Pandas</text>
+  <text x="680" y="148" fill="#34d399" font-size="11" font-weight="600">Model: Random Forest</text>
+  <text x="680" y="165" fill="#a0a8c0" font-size="11">Input features:</text>
+  <text x="680" y="181" fill="#a0a8c0" font-size="11">  jumlah_penjualan</text>
+  <text x="680" y="197" fill="#a0a8c0" font-size="11">  harga, diskon</text>
+  <text x="680" y="213" fill="#a0a8c0" font-size="11">  + engineered features</text>
+  <text x="680" y="233" fill="#a0a8c0" font-size="11">Output: Laris / Tidak</text>
+  <text x="680" y="253" fill="#6e7899" font-size="10">Accuracy: 90%  |  CV: 98%</text>
+  <text x="680" y="268" fill="#6e7899" font-size="10">Saved: model.joblib</text>
+
+  <!-- ── DATA ── -->
+  <rect x="370" y="410" width="140" height="80" rx="10" fill="#1c2030" stroke="#2a2f45" stroke-width="1.5"/>
+  <text x="440" y="440" text-anchor="middle" fill="#fbbf24" font-size="20">🗄️</text>
+  <text x="440" y="460" text-anchor="middle" fill="#e8ecf4" font-size="12" font-weight="600">Data Layer</text>
+  <text x="440" y="476" text-anchor="middle" fill="#6e7899" font-size="10">sales_data.csv</text>
+
+  <!-- ── Arrows ── -->
+  <!-- Frontend ↔ Backend (HTTP/REST + JWT) -->
+  <line x1="210" y1="175" x2="338" y2="175" stroke="#6c8bff" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <line x1="338" y1="195" x2="210" y2="195" stroke="#6c8bff" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <text x="270" y="168" text-anchor="middle" fill="#6c8bff" font-size="10">HTTP + JWT</text>
+  <text x="270" y="212" text-anchor="middle" fill="#6c8bff" font-size="10">JSON Response</text>
+
+  <!-- Backend ↔ ML -->
+  <line x1="540" y1="175" x2="658" y2="175" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <line x1="658" y1="195" x2="540" y2="195" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <text x="599" y="168" text-anchor="middle" fill="#34d399" font-size="10">predict()</text>
+  <text x="599" y="212" text-anchor="middle" fill="#34d399" font-size="10">Laris/Tidak</text>
+
+  <!-- Backend ↔ Data -->
+  <line x1="440" y1="342" x2="440" y2="408" stroke="#6e7899" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="455" y="380" fill="#6e7899" font-size="10">pandas.read_csv</text>
+
+  <!-- ML ↔ Data -->
+  <line x1="700" y1="282" x2="520" y2="410" stroke="#6e7899" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="645" y="370" fill="#6e7899" font-size="10">train / load</text>
+
+  <!-- Legend -->
+  <rect x="40" y="430" width="270" height="70" rx="8" fill="#1c2030" stroke="#2a2f45" stroke-width="1"/>
+  <text x="56" y="450" fill="#6e7899" font-size="11" font-weight="600">Data Flow:</text>
+  <line x1="56" y1="465" x2="90" y2="465" stroke="#6c8bff" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <text x="96" y="468" fill="#a0a8c0" font-size="10">HTTP / JWT Auth</text>
+  <line x1="56" y1="483" x2="90" y2="483" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-acc)"/>
+  <text x="96" y="486" fill="#a0a8c0" font-size="10">ML Service Call</text>
+  <line x1="165" y1="465" x2="199" y2="465" stroke="#6e7899" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="205" y="468" fill="#a0a8c0" font-size="10">File I/O</text>
+</svg>
