@@ -5,16 +5,16 @@
 ## 🏗️ Arsitektur Sistem
 
 ```
-┌─────────────────┐      HTTP/JWT       ┌──────────────────────┐      predict()     ┌─────────────────┐
-│   FRONTEND      │ ◄──────────────────► │     BACKEND          │ ◄─────────────────► │   ML MODULE     │
-│  React + Vite   │                      │  FastAPI + Python    │                      │  scikit-learn   │
-│  localhost:5173 │                      │  localhost:8000      │                      │  RandomForest   │
-└─────────────────┘                      └──────────┬───────────┘                      └────────┬────────┘
-                                                     │ pandas.read_csv                          │ train/load
-                                                     ▼                                           ▼
+┌─────────────────┐      HTTP/JWT       ┌──────────────────────┐      predict()       ┌─────────────────┐
+│   FRONTEND      │ ◄──────────────────►│     BACKEND          │ ◄─────────────────►  │   ML MODULE     │
+│  React + Vite   │                     │  FastAPI + Python    │                      │  scikit-learn   │
+│  localhost:5173 │                     │  localhost:8000      │                      │  RandomForest   │
+└─────────────────┘                     └──────────┬───────────┘                      └────────┬────────┘
+                                                   │ pandas.read_csv                           │ train/load
+                                                   ▼                                           ▼
                                               ┌─────────────────────────────────────────────────────┐
-                                              │              DATA LAYER: sales_data.csv              │
-                                              └──────────────────────────────────────────────────────┘
+                                              │              DATA LAYER: sales_data.csv             │
+                                              └─────────────────────────────────────────────────────┘
 ```
 
 ### Alur Data
