@@ -27,7 +27,7 @@
 ## 📁 Struktur Project
 
 ```
-project-root/
+sales-ai-sytem/
 ├── backend/
 │   ├── main.py               # FastAPI app, CORS, startup
 │   ├── config.py             # Settings, paths, dummy users
